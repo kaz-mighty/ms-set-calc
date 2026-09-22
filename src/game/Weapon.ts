@@ -33,7 +33,7 @@ export class Weapon {
 }
 
 export const byID = Data.parseText(
-  require('fs').readFileSync(`${__dirname}/data/weapons.csv`, 'utf8')
+  require('fs').readFileSync(__dirname + '/data/weapons.csv', 'utf8')
 ).map(record => new Weapon(record));
 
 export const byName = byID.reduce((byName, weapon) => {

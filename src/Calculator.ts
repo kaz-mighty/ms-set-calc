@@ -73,7 +73,7 @@ export class Calculator {
   pets: Monster.Monster[] | null;
 
   sets: Set[] | null;
-  timeout: number | null;
+  timeout: ReturnType<typeof setTimeout> | null;
   tried: number;
   duration: number;
 

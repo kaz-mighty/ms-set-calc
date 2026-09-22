@@ -45,7 +45,7 @@ export class Monster {
 }
 
 export const byID = Data.parseText(
-  require('fs').readFileSync(`${__dirname}/data/monsters.csv`, 'utf8')
+  require('fs').readFileSync(__dirname + '/data/monsters.csv', 'utf8')
 ).map(record => new Monster(record));
 
 export const byName = byID.reduce((byName, monster) => {

@@ -21,7 +21,7 @@ export const Shields: m.Component<Attrs, State> = {
     return m('div.shields',
       m('input[placeholder=Search shields]', {
         value: state.search,
-        oninput: m.withAttr('value', value => state.search = value)
+        oninput: (ev: Event) => state.search = (ev.target as HTMLInputElement).value
       }),
       ` (${(100 * calculator.collection.shields.length / (Shield.byID.length - 1)).toFixed(1)}%) `,
       m('span.tag', {

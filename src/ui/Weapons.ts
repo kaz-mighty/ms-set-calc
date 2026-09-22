@@ -21,7 +21,7 @@ export const Weapons: m.Component<Attrs, State> = {
     return m('div.weapons',
       m('input[placeholder=Search weapons]', {
         value: state.search,
-        oninput: m.withAttr('value', value => state.search = value)
+        oninput: (ev: Event) => state.search = (ev.target as HTMLInputElement).value
       }),
       ` (${(100 * calculator.collection.weapons.length / (Weapon.byID.length - 1)).toFixed(1)}%) `,
       m('span.tag', {

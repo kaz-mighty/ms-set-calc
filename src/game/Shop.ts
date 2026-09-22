@@ -7,19 +7,19 @@ import * as Weapon from "./Weapon";
 const fs = require('fs');
 
 const weaponIDs = Data.parseText(
-  fs.readFileSync(`${__dirname}/data/shop-weapons.csv`, 'utf8')
+  fs.readFileSync(__dirname + '/data/shop-weapons.csv', 'utf8')
 ).map(record => +record.weaponId);
 
 const armorIDs = Data.parseText(
-  fs.readFileSync(`${__dirname}/data/shop-armors.csv`, 'utf8')
+  fs.readFileSync(__dirname + '/data/shop-armors.csv', 'utf8')
 ).map(record => +record.armorId);
 
 const shieldIDs = Data.parseText(
-  fs.readFileSync(`${__dirname}/data/shop-shields.csv`, 'utf8')
+  fs.readFileSync(__dirname + '/data/shop-shields.csv', 'utf8')
 ).map(record => +record.shieldId);
 
 const accessoryIDs = Data.parseText(
-  fs.readFileSync(`${__dirname}/data/shop-accessories.csv`, 'utf8')
+  fs.readFileSync(__dirname + '/data/shop-accessories.csv', 'utf8')
 ).map(record => +record.accessoryId);
 
 export enum ShopType {

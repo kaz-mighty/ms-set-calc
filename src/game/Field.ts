@@ -20,7 +20,7 @@ class Field {
 }
 
 export const byDistance = Data.parseText(
-  require('fs').readFileSync(`${__dirname}/data/fields.csv`, 'utf8')
+  require('fs').readFileSync(__dirname + '/data/fields.csv', 'utf8')
 ).map(record => new Field(record));
 
 export function populateDistances() {

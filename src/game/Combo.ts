@@ -2,7 +2,7 @@ import * as Data from "./Data";
 import * as Skill from "./Skill";
 
 const combos = Data.parseText(
-  require('fs').readFileSync(`${__dirname}/data/combos.csv`, 'utf8')
+  require('fs').readFileSync(__dirname + '/data/combos.csv', 'utf8')
 ).reduce((combos, record) => {
   combos[+record.wpnAmr] = Skill.decode(record.skill1st2nd3rd);
   return combos;

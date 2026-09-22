@@ -19,12 +19,13 @@ export const Skills: m.Component<Attrs> = {
       )),
       m('tbody', calculator.filter.skillLevels.map((skillLevel, index) => m('tr',
         m('td', m('select', {
-          onchange: m.withAttr('selectedIndex', selectedIndex => {
+          onchange: (ev: Event) => {
+            const selectedIndex = (ev.target as HTMLSelectElement).selectedIndex;
             const skill = skills[+selectedIndex];
             skillLevel.skill = skill;
             if (skillLevel.level > skill.maxLevel) skillLevel.level = skill.maxLevel;
             calculator.invalidateSkills();
-          })
+          }
         }, skills.map(option => m('option', {
           selected: option === skillLevel.skill
         }, option.name))
@@ -33,9 +34,9 @@ export const Skills: m.Component<Attrs> = {
           min: 1,
           max: skillLevel.skill.maxLevel,
           value: skillLevel.level,
-          onchange: m.withAttr('value', value => {
-            calculator.filter.skillLevels[index].level = +value;
-          })
+          onchange: (ev: Event) => {
+            calculator.filter.skillLevels[index].level = +(ev.target as HTMLInputElement).value;
+          }
         })),
         m('td', skillLevel.skill.info),
         m('td', skillLevel.skill.toString(skillLevel.level)),

@@ -32,7 +32,7 @@ export class Accessory {
 }
 
 export const byID = Data.parseText(
-  require('fs').readFileSync(`${__dirname}/data/accessories.csv`, 'utf8')
+  require('fs').readFileSync(__dirname + '/data/accessories.csv', 'utf8')
 ).map(record => new Accessory(record));
 
 export const byName = byID.reduce((byName, accessory) => {

@@ -10,5 +10,10 @@
     "noImplicitThis": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    "useUnknownInCatchVariables": false,
+    "types": [
+      "node",
+    ],
   }
 }

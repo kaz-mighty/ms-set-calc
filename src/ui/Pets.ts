@@ -21,7 +21,7 @@ export const Pets: m.Component<Attrs, State> = {
     return m('div.pets',
       m('input[placeholder=Search pets]', {
         value: state.search,
-        oninput: m.withAttr('value', value => state.search = value)
+        oninput: (ev: Event) => state.search = (ev.target as HTMLInputElement).value
       }),
       ` (${(100 * calculator.collection.pets.length / (Monster.byID.length - 1)).toFixed(1)}%) `,
       m('span.tag', {

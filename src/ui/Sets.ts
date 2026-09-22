@@ -159,7 +159,7 @@ export const Sets: m.Component<Attrs, State> = {
       return m('div.pagination',
         'Page: ',
         m('select', {
-          onchange: m.withAttr('selectedIndex', (selectedIndex: number) => state.page = selectedIndex)
+          onchange: (ev: Event) => state.page = (ev.target as HTMLSelectElement).selectedIndex
         }, pages)
       );
     }

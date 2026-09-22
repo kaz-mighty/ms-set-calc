@@ -99,10 +99,10 @@ export const Name: m.Component<Attrs> = {
 export function show(reference: Element, equipment: Equipment) {
   vnode.state.equipment = equipment;
   popper = new Popper(reference, vnode.dom, {placement: 'auto'});
-  vnode.dom.style.visibility = 'visible';
+  (vnode.dom as HTMLElement).style.visibility = 'visible';
 }
 
 export function hide() {
-  vnode.dom.style.visibility = 'hidden';
+  (vnode.dom as HTMLElement).style.visibility = 'hidden';
   popper.destroy();
 }

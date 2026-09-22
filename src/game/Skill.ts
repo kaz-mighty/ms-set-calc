@@ -118,7 +118,7 @@ export interface SkillLevel {
 }
 
 export const byID = Data.parseText(
-  require('fs').readFileSync(`${__dirname}/data/skills.csv`, 'utf8')
+  require('fs').readFileSync(__dirname + '/data/skills.csv', 'utf8')
 ).map(record => new Skill(record));
 
 export const byName = byID.reduce((byName, skill) => {

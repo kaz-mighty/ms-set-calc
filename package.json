@@ -2,20 +2,21 @@
   "name": "ms-set-calc",
   "version": "0.0.6",
   "dependencies": {
-    "@types/mithril": "^1.1.12",
-    "@types/node": "^10.3.5",
-    "mithril": "^1.1.6",
-    "parcel": "^1.9.2",
+    "@types/mithril": "^2.2.9",
+    "@types/node": "^26.6.2",
+    "mithril": "^2.3.8",
+    "deasync": "^0.1.30",
+    "parcel": "^2.16.4",
     "popper.js": "^1.14.3",
-    "typescript": "^3.0.0-dev.20180619"
+    "typescript": "^6.0.3"
   },
   "browserslist": [
     "last 2 chrome versions",
     "last 2 firefox versions"
   ],
   "scripts": {
-    "build": "parcel build -d docs --public-url /ms-set-calc src/index.html",
-    "watch": "parcel watch -d docs --public-url /ms-set-calc src/index.html",
+    "build": "parcel build --dist-dir docs --public-url ./ src/index.html",
+    "watch": "parcel watch --dist-dir docs --public-url ./ src/index.html",
     "serve": "parcel serve src/index.html"
   }
 }
