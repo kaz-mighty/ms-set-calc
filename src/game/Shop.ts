@@ -95,7 +95,7 @@ function getAccessoryIDs(distance: number) {
 }
 
 export function populateDistances() {
-  for (let distance = 0; distance <= Field.byDistance[Field.byDistance.length - 1].distance; distance++) {
+  for (let distance = 0; distance <= 814; distance++) {
     const shopType = getShopType(distance);
     if (shopType === ShopType.ZERO) continue;
 

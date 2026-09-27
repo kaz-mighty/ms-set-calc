@@ -26,6 +26,7 @@ m.mount(document.body, {
       }}, [
         m('a[href=?lang=en]', "English"),
         m('a[href=?lang=jp]', "Japanese"),
+        m('span', Lang.texts.Note),
       ]),
       m("br"),
       m(Skills.Skills, { calculator }),
