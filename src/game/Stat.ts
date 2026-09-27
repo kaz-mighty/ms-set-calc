@@ -1,4 +1,5 @@
 import * as Data from "./Data";
+import lang from "../lang";
 
 export enum StatID {
   HP,
@@ -10,6 +11,16 @@ export enum StatID {
   LUK,
   NUM
 }
+
+export const StatNames = lang == 'jp' ? [
+  'HP',
+  '物攻',
+  '物防',
+  '属攻',
+  '属防',
+  '速さ',
+  '運気',
+] : new Array(StatID.NUM).fill(null).map((_, i) => StatID[i]);
 
 export interface Stats {
   [statID: number]: number;

@@ -1,5 +1,6 @@
 import * as Calculator from "../Calculator";
 import * as Skill from "../game/Skill";
+import lang from "../lang";
 import m from "mithril";
 
 export interface Attrs {
@@ -8,7 +9,9 @@ export interface Attrs {
 
 export const Skills: m.Component<Attrs> = {
   view({ attrs: { calculator } }) {
-    const skills = Skill.byID.slice().sort((a, b) => a.name.localeCompare(b.name));
+    const skills = lang == 'jp'
+      ? Skill.byID.slice()
+      : Skill.byID.slice().sort((a, b) => a.name.localeCompare(b.name));
 
     return m('table',
       m('thead', m('tr',

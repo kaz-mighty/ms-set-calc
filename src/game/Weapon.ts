@@ -3,6 +3,7 @@ import * as Element from "./Element";
 import * as Monster from "./Monster";
 import * as Skill from "./Skill";
 import * as Stat from "./Stat";
+import lang from "../lang";
 
 export class Weapon {
   id: number;
@@ -16,7 +17,7 @@ export class Weapon {
 
   constructor(record: Data.Record) {
     this.id = +record.weaponId;
-    this.name = record.nameEng;
+    this.name = (lang == 'jp') ? record.nameJpn : record.nameEng;
     this.stats = {
       [Stat.StatID.ATK]: Data.parseInt(record.physicalElementalWeight, 0, 3) * 0.1,
       [Stat.StatID.INT]: Data.parseInt(record.physicalElementalWeight, 3, 3) * 0.1

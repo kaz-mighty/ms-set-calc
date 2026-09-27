@@ -2,6 +2,7 @@ import * as Calculator from "../Calculator";
 import * as Element from "../game/Element";
 import * as Popup from "./Popup";
 import * as Stat from "../game/Stat";
+import * as Lang from "../lang";
 import m from "mithril";
 
 export interface Attrs {
@@ -68,7 +69,7 @@ function statColumn(statID: Stat.StatID): Column {
   const get = (set: Calculator.Set) => set.stats[statID] + set.bonusStats[statID]
 
   return {
-    name: Stat.StatID[statID],
+    name: Stat.StatNames[statID],
     td: set => m('td.numeric', set.bonusStats[statID] === 0 ? get(set).toFixed(2) : m(`abbr[title=${set.stats[statID].toFixed(1)} ${set.bonusStats[statID] > 0 ? '+' : '-'} ${Math.abs(set.bonusStats[statID]).toFixed(2)}]`, get(set).toFixed(2))),
     compare: (a, b) => get(a) - get(b)
   };
@@ -78,18 +79,18 @@ function elementColumn(elementID: Element.ElementID): Column {
   const get = (set: Calculator.Set) => set.elements[elementID] + set.bonusElements[elementID]
 
   return {
-    name: Element.ElementID[elementID],
+    name: Element.ElementNames[elementID],
     td: set => m('td.numeric', set.bonusElements[elementID] === 0 ? get(set) : m(`abbr[title=${set.elements[elementID]} + ${set.bonusElements[elementID]}]`, get(set))),
     compare: (a, b) => get(a) - get(b)
   };
 }
 
 const columns: Column[] = [
-  equipmentColumn('Weapon', set => set.weapon),
-  equipmentColumn('Armor', set => set.armor),
-  equipmentColumn('Shield', set => set.shield),
-  equipmentColumn('Accessory', set => set.accessory),
-  equipmentColumn('Pet', set => set.pet),
+  equipmentColumn(Lang.texts.Weapon, set => set.weapon),
+  equipmentColumn(Lang.texts.Armor, set => set.armor),
+  equipmentColumn(Lang.texts.Shield, set => set.shield),
+  equipmentColumn(Lang.texts.Accessory, set => set.accessory),
+  equipmentColumn(Lang.texts.Pet, set => set.pet),
   skillColumn(0),
   skillColumn(1),
   skillColumn(2),
@@ -100,7 +101,7 @@ const columns: Column[] = [
   statColumn(Stat.StatID.MEN),
   statColumn(Stat.StatID.SPD),
   statColumn(Stat.StatID.LUK),
-  { name: 'WGT', td: set => m('td.numeric', set.weight), compare: (a, b) => a.weight - b.weight },
+  { name: Lang.texts.WGT, td: set => m('td.numeric', set.weight), compare: (a, b) => a.weight - b.weight },
   elementColumn(Element.ElementID.FIRE),
   elementColumn(Element.ElementID.WATER),
   elementColumn(Element.ElementID.LEAF),

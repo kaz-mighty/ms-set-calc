@@ -6,6 +6,7 @@ import * as Shield from "./Shield";
 import * as Skill from "./Skill";
 import * as Stat from "./Stat";
 import * as Weapon from "./Weapon";
+import lang from "../lang";
 
 export class Monster {
   id: number;
@@ -23,7 +24,7 @@ export class Monster {
 
   constructor(record: Data.Record) {
     this.id = +record.monsterId;
-    this.name = record.nameEng;
+    this.name = (lang == 'jp') ? record.nameJpn : record.nameEng;
     this.spawnRate = Data.parseInt(record.lukExpRare, 6, 3);
     this.stats = Stat.decode(record.petStatus1st2nd3rd);
     this.elements = Element.decode(record.petElm1st2nd3rd);

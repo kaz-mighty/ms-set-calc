@@ -8,6 +8,7 @@ import * as Sets from "./ui/Sets";
 import * as Shields from "./ui/Shields";
 import * as Skills from "./ui/Skills";
 import * as Weapons from "./ui/Weapons";
+import * as Lang from "./lang";
 import m from "mithril";
 
 let collection = Collection.load();
@@ -19,9 +20,17 @@ m.mount(document.body, {
   view() {
     return [
       m(Popup.Popup),
+      m('div', { style: {
+        display: "flex",
+        gap: "1em",
+      }}, [
+        m('a[href=?lang=en]', "English"),
+        m('a[href=?lang=jp]', "Japanese"),
+      ]),
+      m("br"),
       m(Skills.Skills, { calculator }),
-      m('input[type=button][value=Export Collection]', { onclick: exportCollection }),
-      m('input[type=button][value=Import Collection]', { onclick: importCollection }),
+      m('input[type=button]', { value: Lang.texts.exportButton, onclick: exportCollection }),
+      m('input[type=button]', { value: Lang.texts.importButton, onclick: importCollection }),
       m(Weapons.Weapons, { calculator }),
       m(Armors.Armors, { calculator }),
       m(Shields.Shields, { calculator }),
@@ -49,19 +58,19 @@ function exportCollection() {
   const success = document.execCommand('copy');
   textarea.remove();
   if (success) {
-    alert('Collection exported to clipboard.');
+    alert(Lang.texts.exportSuccess);
   } else {
-    alert('Error exporting collection to clipboard.');
+    alert(Lang.texts.exportError);
   }
 }
 
 function importCollection() {
-  const json = prompt('Paste export below:');
+  const json = prompt(Lang.texts.importPrompt);
   if (!json) return;
   try {
     JSON.parse(json);
   } catch (e) {
-    alert(`Error parsing export: ${e.message}`);
+    alert(Lang.texts.importError + e.message);
     return;
   }
 

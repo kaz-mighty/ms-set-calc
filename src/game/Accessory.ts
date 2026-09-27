@@ -3,6 +3,7 @@ import * as Element from "./Element";
 import * as Monster from "./Monster";
 import * as Skill from "./Skill";
 import * as Stat from "./Stat";
+import lang from "../lang";
 
 export class Accessory {
   id: number;
@@ -17,12 +18,12 @@ export class Accessory {
 
   constructor(record: Data.Record) {
     this.id = +record.accessoryId;
-    this.name = record.nameEng;
+    this.name = (lang == 'jp') ? record.nameJpn : record.nameEng;
     this.stats = Stat.decode(record.status1st2ndWeight, 2);
     this.weight = Data.parseInt(record.status1st2ndWeight, 6, 3);
     this.elements = Element.decode(record.elm1st2nd3rd);
     this.skills = Skill.decode(record.skill1st2nd3rd);
-    this.info = record.infoEng || undefined;
+    this.info = ((lang == 'jp') ? record.infoJpn : record.infoEng) || undefined;
     this.droppedBy = [];
   }
 

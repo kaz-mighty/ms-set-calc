@@ -1,4 +1,5 @@
 import * as Data from "./Data";
+import lang from "../lang";
 
 export enum SkillID {
   ZERO,
@@ -91,12 +92,12 @@ export class Skill {
   constructor(record: Data.Record) {
     this.id = +record.skillId;
     this.type = +record.skillType;
-    this.name = record.nameEng;
+    this.name = (lang == 'jp') ? record.nameJpn : record.nameEng;
     this.needNum = +record.needNum;
     this.levelupInterval = +record.levelupInterval;
     this.levelupValue = +record.levelupValue;
     this.maxLevel = +record.maxLevel;
-    this.info = record.infoEng;
+    this.info = (lang == 'jp') ? record.infoJpn : record.nameEng;
   }
 
   toString(level: number) {

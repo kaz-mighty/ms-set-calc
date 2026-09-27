@@ -1,4 +1,5 @@
 import * as Data from "./Data";
+import lang from "../lang";
 
 export enum ElementID {
   NONE,
@@ -9,6 +10,15 @@ export enum ElementID {
   DARK,
   NUM
 }
+
+export const ElementNames = lang == 'jp' ? [
+  'NONE',
+  '火',
+  '水',
+  '木',
+  '光',
+  '闇',
+] : new Array(ElementID.NUM).fill(null).map((_, i) => ElementID[i]);
 
 export interface Elements {
   [elementID: number]: number;

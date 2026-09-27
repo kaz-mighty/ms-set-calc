@@ -39,7 +39,7 @@ export const Popup: m.Component<{}, State> = {
             m('th', '/ Level'),
           )),
           m('tbody', Object.keys(equipment.stats).map((statID: any) => m('tr',
-            m('td', Stat.StatID[statID]),
+            m('td', Stat.StatNames[statID]),
             m('td.numeric', equipment.stats[statID].toFixed(1)),
           ))),
         ),
@@ -49,7 +49,7 @@ export const Popup: m.Component<{}, State> = {
             m('th', '%'),
           )),
           m('tbody', Object.keys(equipment.elements).map((elementID: any) => m('tr',
-            m('td', Element.ElementID[elementID]),
+            m('td', Element.ElementNames[elementID]),
             m('td.numeric', equipment.elements[elementID]),
           )))
         ),

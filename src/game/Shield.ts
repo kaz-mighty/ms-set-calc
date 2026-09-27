@@ -3,6 +3,7 @@ import * as Element from "./Element";
 import * as Monster from "./Monster";
 import * as Skill from "./Skill";
 import * as Stat from "./Stat";
+import lang from "../lang";
 
 export class Shield {
   id: number;
@@ -16,7 +17,7 @@ export class Shield {
 
   constructor(record: Data.Record) {
     this.id = +record.shieldId;
-    this.name = record.nameEng;
+    this.name = (lang == 'jp') ? record.nameJpn : record.nameEng;
     this.stats = {
       [Stat.StatID.DEF]: Data.parseInt(record.physicalElementalWeight, 0, 3) * 0.1,
       [Stat.StatID.MEN]: Data.parseInt(record.physicalElementalWeight, 3, 3) * 0.1
