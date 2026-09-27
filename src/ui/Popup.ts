@@ -62,7 +62,7 @@ export const Popup: m.Component<{}, State> = {
           m('div', m('b', 'Spawn Rate: '), equipment.spawnRate)
         ] : [
           equipment.shopDistance && m('div', m('b', 'Shop: '), equipment.shopDistance),
-          equipment.droppedBy && equipment.droppedBy.length && m('table',
+          equipment.droppedBy && !!equipment.droppedBy.length && m('table',
             m('thead', m('tr',
               m('th', 'Monster'),
               m('th', 'Distance'),
