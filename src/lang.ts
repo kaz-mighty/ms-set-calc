@@ -21,7 +21,6 @@ const textsEn = {
     exportError: "Error exporting collection to clipboard.",
     importPrompt: "Paste export below:",
     importError: "Error parsing export: ",
-    Note: "Note: There is no data yet for the monsters and combo bonuses added in ver1.0.12.",
 }
 
 const textsJp: typeof textsEn = {
@@ -38,7 +37,6 @@ const textsJp: typeof textsEn = {
     exportError: "所持状態をクリップボードにエクスポートする際にエラーが起きました。",
     importPrompt: "ここにエクスポートを貼り付けてください:",
     importError: "エクスポートの解析中にエラーが発生しました: ",
-    Note: "注意: ver1.0.12で追加されたモンスター、コンボボーナスはまだデータがありません。"
 };
 
 export const texts = {
