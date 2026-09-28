@@ -8,6 +8,8 @@ import * as Stat from "./Stat";
 import * as Weapon from "./Weapon";
 import lang from "../lang";
 
+const notFieldBosses = [244, 286, 287, 288, 289, 290, 291, 292, 285, 282, 279, 283, 309, 310, 311, 312, 313, 314, 315, 316, 317];
+
 export class Monster {
   id: number;
   name: string;
@@ -37,7 +39,7 @@ export class Monster {
     this.shield.droppedBy.push(this);
     this.accessory = Accessory.byID[Data.parseInt(record.dropAceGemTmp, 0, 3)];
     this.accessory.droppedBy.push(this);
-    this.boss = false;
+    this.boss = notFieldBosses.includes(this.id);
   }
 
   toString() {
