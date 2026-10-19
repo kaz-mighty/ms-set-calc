@@ -166,7 +166,7 @@ export class Calculator {
       const { done, value } = generator.next();
       if (value) {
         this.tried = value.tried;
-        if (this.sets && value.batch.length > 0) this.sets.push(...value.batch);
+        if (this.sets && value.batch.length > 0) this.sets = this.sets.concat(value.batch);
       }
 
       this.duration = new Date().valueOf() - start.valueOf();
